@@ -1,0 +1,32 @@
+{
+  "name": "n3d-optflow",
+  "version": "1.0.0",
+  "description": "optical flow for THREEjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node demo/server.js",
+    "start": "concurrently \"webpack --watch ./demo/index.js ./demo/index.bundle.js\" \"node demo/server.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhygns/n3d-optFlow.git"
+  },
+  "keywords": [
+    "threejs",
+    "n3d-threejs",
+    "opticalFlow"
+  ],
+  "author": "donghyeon kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhygns/n3d-optFlow/issues"
+  },
+  "homepage": "https://github.com/dhygns/n3d-optFlow#readme",
+  "dependencies": {
+    "n3d-threejs": "^76.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "express": "^4.15.3"
+  }
+}
