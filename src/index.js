@@ -1,9 +1,9 @@
 import THREE from 'n3d-threejs'
-import WebCam from './src/pipelines/Webcampipe.js'
-import Prevpipe from './src/pipelines/Prevpipe.js'
-import Diffpipe from './src/pipelines/Diffpipe.js'
-import Decaypipe from './src/pipelines/Decaypipe.js'
-import Blurpipe from './src/pipelines/Blurpipe.js'
+import WebCam from './pipelines/Webcampipe.js'
+import Prevpipe from './pipelines/Prevpipe.js'
+import Diffpipe from './pipelines/Diffpipe.js'
+import Decaypipe from './pipelines/Decaypipe.js'
+import Blurpipe from './pipelines/Blurpipe.js'
 
 class OptFlow {
   constructor(rdrr) {
@@ -34,13 +34,6 @@ class OptFlow {
       this.pipeline_decay.getTexture()
     );
     // console.log(this.pipeline_prev);
-
-    this.camera = new THREE.Camera();
-    this.scene = new THREE.Scene();
-    this.scene.add(new THREE.Mesh(
-      new THREE.PlaneGeometry(2.0, 2.0),
-      new THREE.MeshBasicMaterial({ map : this.pipeline_blur.getTexture() })
-    ));
   }
 
   update(dt) {
@@ -51,8 +44,12 @@ class OptFlow {
     this.pipeline_blur.update(dt);
   }
 
-  render() {
-    if(this.pipeline_blur.isReady() == true) this.rdrr.render(this.scene, this.camera);
+  getTexture() {
+    return this.pipeline_blur.getTexture();
+  }
+
+  isReady() {
+    return this.pipeline_blur.isReady();
   }
 }
 

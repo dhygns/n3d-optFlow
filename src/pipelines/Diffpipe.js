@@ -31,7 +31,7 @@ class Diffpipe extends PIPE{
           vec3 prevcol = texture2D(unif_prev, vtex).rgb;
           vec3 diffcol = prevcol - currcol;
 
-          float power = smoothstep(0.0, 1.0, length(diffcol));
+          float power = smoothstep(0.0, 0.5, length(diffcol));
 
           float mdiff = length(vec3(1.0));
           vec3 diffr = texture2D(unif_prev, vtex + offset_x).rgb - currcol;
