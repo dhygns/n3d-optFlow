@@ -1,3 +1,34 @@
+# OptFlow
+It's implemented to use easyful for Environment of THREEjs. However, You can use it in othor Environment with some restrictions.
+
+##
+
+## Install
+
+  1. Move to your project (in console), like this...
+
+  ``` cd user/desktop/projectFolder ```
+  2. optFlow install
+
+  ``` npm install --save n3d-optFlow ```
+  3. just use it
+
+  ```
+  import OptFlow from 'n3d-optFlow'
+
+  //setup
+  ...
+  var optflow = new OptFlow(renderer/*threejs renderer*/);
+  ...
+  //update
+  optflow.update(deltatime);
+  ...
+  //when use optflow's texture, you should check it is ready to use.
+  if(optflow.isReady()) var texture = optflow.getTexture();
+  ```
+
+##
+
 Copyright (c) 2017 Donghyeon Kim (dhygns@naver.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
