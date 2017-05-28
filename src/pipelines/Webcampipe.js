@@ -1,10 +1,10 @@
 import THREE from "n3d-threejs"
-import INFO from "./information.js"
+import PIPE from "./Pipeline.js"
+import INFO from "./../information.js"
 
-class WebCam {
+class Webcampipe extends PIPE {
   constructor(rdrr) {
-    // this.isReady = false;
-    this.rdrr = rdrr;
+    super(rdrr);
 
     this.video = document.createElement("video");
     this.video.width = INFO.webcamWidth;
@@ -19,21 +19,10 @@ class WebCam {
     this.videotexture.minFilter = THREE.LinearFilter;
     this.videotexture.magFilter = THREE.LinearFilter;
 
-    this.texture = new THREE.WebGLRenderTarget(
-      INFO.textureWidth, INFO.textureHeight, {
-          minFilter : THREE.LinearFilter,
-          magFilter : THREE.LinaerFilter,
-      }
-    );
-    this.texture.isready = false;
-
-    this.camera = new THREE.Camera();
-    this.canvas = new THREE.Object3D();
     this.canvas.add(new THREE.Mesh(
-      new THREE.PlaneGeometry(2.0, 2.0),
+      this.geometry,
       new THREE.MeshBasicMaterial({map : this.videotexture})
     ));
-    this.scene = new THREE.Scene();
     this.scene.add(this.canvas);
 
   }
@@ -64,16 +53,10 @@ class WebCam {
   }
 
   update() {
-    this.texture.isready = this.videotexture.needsUpdate = !this.video.paused;
-    if(this.texture.isready)
-      this.rdrr.render(this.scene, this.camera, this.texture);
+    this.videotexture.needsUpdate = !this.video.paused;
+    if(!this.video.paused) this.render();
   }
-
-
-  getTexture() { return this.texture; }
-
-  isReady() { return !this.video.paused; }
 }
 
 
-export default WebCam
+export default Webcampipe
