@@ -2,16 +2,15 @@
 
 // const webcamWidth = 320;
 // const webcamHeight = 240;
-const webcamWidth = 320;
-const webcamHeight = 240;
+const info = {
+  webcamWidth : 320,
+  webcamHeight : 240,
 
-const textureWidth = 256;
-const textureHeight = 256;
+  textureWidth : 256,
+  textureHeight : 256,
 
-export default {
-  webcamWidth,
-  webcamHeight,
+  blurRange : 5,
+  blurDetail : 2,
+};
 
-  textureWidth,
-  textureHeight,
-}
+export default info

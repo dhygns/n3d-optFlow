@@ -54,6 +54,7 @@ class Decaypipe extends PIPE {
       })
     ));
     this.tempinit = { type : "1f", value : 0.0 };
+    this.tempunif = { type : "t" , value : this.currtexture};
     this.tempScene = new THREE.Scene();
     this.tempCanvas = new THREE.Object3D();
     this.tempScene.add(this.tempCanvas);
@@ -62,7 +63,7 @@ class Decaypipe extends PIPE {
       new THREE.ShaderMaterial({
         uniforms : {
           unif_init : this.tempinit,
-          unif_texture : { type : "t", value : this.texture}
+          unif_texture : this.tempunif
         },
         fragmentShader : `
         uniform float unif_init;
@@ -93,6 +94,7 @@ class Decaypipe extends PIPE {
       this.timer.value = dt;
       this.rdrr.render(this.tempScene, this.camera, this.temptexture);
       this.tempinit.value = 1.0;
+      this.tempunif.value = this.texture;
       // this.tempMaterial.map = this.texture;
       this.render();
     }
