@@ -10,7 +10,7 @@ It's implemented to use easyful for Environment of THREEjs. However, You can use
   ``` cd user/desktop/projectFolder ```
   2. optFlow install
 
-  ``` npm install --save n3d-optFlow ```
+  ``` npm install ```
   3. just use it
 
   ```
@@ -26,7 +26,12 @@ It's implemented to use easyful for Environment of THREEjs. However, You can use
   //when use optflow's texture, you should check it is ready to use.
   if(optflow.isReady()) var texture = optflow.getTexture();
   ```
-
+  4. if you want to excute demo.
+  ```
+  >> npm install
+  >> npm start
+  ```
+  then, Excute chrome, and http://localhost:3000 
 ##
 
 Copyright (c) 2017 Donghyeon Kim (dhygns@naver.com)

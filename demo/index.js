@@ -1,4 +1,4 @@
-import THREE from "n3d-threejs"
+import * as THREE from "three"
 import OPTICAL from "./../src/index.js"
 
 var renderer = new THREE.WebGLRenderer({alpha : false});

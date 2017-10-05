@@ -1,4 +1,4 @@
-import THREE from 'n3d-threejs'
+import * as THREE from 'three'
 import WebCam from './pipelines/Webcampipe.js'
 import Prevpipe from './pipelines/Prevpipe.js'
 import Diffpipe from './pipelines/Diffpipe.js'

@@ -1,4 +1,4 @@
-import THREE from "n3d-threejs"
+import * as THREE from "three"
 import INFO from "./../information.js"
 
 class Pipeline {
